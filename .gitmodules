@@ -1,0 +1,3 @@
+[submodule "test/zapis-slovenskih-stevil"]
+	path = test/zapis-slovenskih-stevil
+	url = https://github.com/gregopet/zapis-slovenskih-stevil.git
