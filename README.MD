@@ -5,7 +5,7 @@ Slovene grammatical genders and cases. It is written in Haxe
 which can be transpiled into many popular languages.
 
 The implementation is tested against test cases from the
-(https://github.com/gregopet/zapis-slovenskih-stevil)[zapis-slovenskih-stevil]
+[zapis-slovenskih-stevil](https://github.com/gregopet/zapis-slovenskih-stevil)
 project.
 
 It currently only supports standard signed integers until I
