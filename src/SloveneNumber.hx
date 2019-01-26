@@ -1,3 +1,6 @@
+/**
+ * A formatter of numbers into Slovene words.
+ */
 class SloveneNumber {
 
     private static var femaleNominativeOnes = [
@@ -78,10 +81,21 @@ class SloveneNumber {
     private static var thousandsSuffixPerCase = ["", "ih", "im", "", "ih", "" ];
     private static var hundredsSuffixPerCase = ["", "tih", "tim", "", "tih", "timi" ];
     
+    /**
+     * Formats the given number into Slovene words using the default form according to
+     * the Slovene grammar which is female case nominative.
+     * @param number The number to format into words
+     */
     public static function formatDefault(number: Int): String {
         return format(number, Gender.Female, Case.Nominative);
     }
     
+    /**
+     * Formats the given number into Slovene words.
+     * @param number The number to format into words
+     * @param ofGender The grammatical gender to use for the created number
+     * @param ofCase The grammatical case to use for the created number
+     */
     public static function format(number: Int, ofGender: Gender, ofCase: Case): String {
         var genderIdx = switch(ofGender) {
             case Gender.Female: 0;
@@ -163,10 +177,10 @@ class SloveneNumber {
             
             if (million == 0) {
                 var prefix = (number < 2000000) ? "" : hundreds(millionsOnly, 1, caseIdx, true) + " ";
-                return prefix + "milijon" + bigNumberSuffix(millionsOnly, 0, caseIdx);
+                return prefix + "milijon" + bigNumberSuffix(millionsOnly, caseIdx);
             } else {
                 var prefix = (number < 2000000) ? "" : hundreds(millionsOnly, 1, caseIdx == 5 ? 5 : 0, true) + " ";
-                return prefix + "milijon" + bigNumberSuffix(millionsOnly, 1, caseIdx == 5 ? 5 : 0) + " " + thousands(million, genderIdx, caseIdx);
+                return prefix + "milijon" + bigNumberSuffix(millionsOnly, caseIdx == 5 ? 5 : 0) + " " + thousands(million, genderIdx, caseIdx);
             }
         }
     }
@@ -179,15 +193,15 @@ class SloveneNumber {
             
             if (billion == 0) {
                 var prefix = (number < 2000000000) ? "" : hundreds(billionsOnly, 0, caseIdx, false) + " ";
-                return prefix + "milijard" + billionNumberSuffix(billionsOnly, 0, caseIdx);
+                return prefix + "milijard" + billionNumberSuffix(billionsOnly, caseIdx);
             } else {
                 var prefix = (number < 2000000000) ? "" : hundreds(billionsOnly, 0, 0, false) + " ";
-                return prefix + "milijard" + billionNumberSuffix(billionsOnly, 1, caseIdx == 5 ? 5 : 0) + " " + millions(billion, genderIdx, caseIdx);
+                return prefix + "milijard" + billionNumberSuffix(billionsOnly, caseIdx == 5 ? 5 : 0) + " " + millions(billion, genderIdx, caseIdx);
             }
         }
     }
     
-    private static function bigNumberSuffix(number: Int, genderIdx: Int, caseIdx: Int) {
+    private static function bigNumberSuffix(number: Int, caseIdx: Int) {
         var modulo = number % 100;
         return switch (modulo) {
             case 1      : ["", "a", "u", "", "u", "om"][caseIdx];
@@ -197,7 +211,7 @@ class SloveneNumber {
         }
     }
     
-    private static function billionNumberSuffix(number: Int, genderIdx: Int, caseIdx: Int) {
+    private static function billionNumberSuffix(number: Int, caseIdx: Int) {
         var modulo = number % 100;
         return switch (modulo) {
             case 1      : ["a", "e", "i", "o", "i", "o"][caseIdx];
