@@ -1,6 +1,7 @@
 /**
  * A formatter of numbers into Slovene words.
  */
+@:keep
 class SloveneNumber {
 
     @:protected private static var femaleNominativeOnes = haxe.ds.Vector.fromArrayCopy([
