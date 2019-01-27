@@ -3,83 +3,92 @@
  */
 class SloveneNumber {
 
-    private static var femaleNominativeOnes = [
+    @:protected private static var femaleNominativeOnes = haxe.ds.Vector.fromArrayCopy([
         "nič", "ena", "dve", "tri", "štiri", "pet", "šest", "sedem", "osem", "devet"
-    ];
-    private static var maleNominativeOnes = [
+    ]);
+    
+    @:protected private static var maleNominativeOnes = haxe.ds.Vector.fromArrayCopy([
         "nič", "en", "dva", "trije", "štirje", "pet", "šest", "sedem", "osem", "devet"
-    ];
-    private static var neutralNominativeOnes = [
+    ]);
+    @:protected private static var neutralNominativeOnes = haxe.ds.Vector.fromArrayCopy([
         "nič", "eno", "dve", "tri", "štiri", "pet", "šest", "sedem", "osem", "devet"
-    ];
-    private static var nominativeOnes = [ femaleNominativeOnes, maleNominativeOnes, neutralNominativeOnes ];
+    ]);
+    @:protected private static var nominativeOnes = haxe.ds.Vector.fromArrayCopy([ femaleNominativeOnes, maleNominativeOnes, neutralNominativeOnes ]);
     
-    private static var femaleGenitiveOnes = [
+    @:protected private static var femaleGenitiveOnes = haxe.ds.Vector.fromArrayCopy([
         "nič", "ene", "dveh", "treh", "štirih", "petih", "šestih", "sedmih", "osmih", "devetih"
-    ];
-    private static var maleGenitiveOnes = [
+    ]);
+    @:protected private static var maleGenitiveOnes = haxe.ds.Vector.fromArrayCopy([
         "nič", "enega", "dveh", "treh", "štirih", "petih", "šestih", "sedmih", "osmih", "devetih"
-    ];
-    private static var neutralGenitiveOnes = [
+    ]);
+    @:protected private static var neutralGenitiveOnes = haxe.ds.Vector.fromArrayCopy([
         "nič", "enega", "dveh", "treh", "štirih", "petih", "šestih", "sedmih", "osmih", "devetih"
-    ];
-    private static var genitiveOnes = [ femaleGenitiveOnes, maleGenitiveOnes, neutralGenitiveOnes ];
+    ]);
+    @:protected private static var genitiveOnes = haxe.ds.Vector.fromArrayCopy([ femaleGenitiveOnes, maleGenitiveOnes, neutralGenitiveOnes ]);
     
-    private static var femaleDativeOnes = [
+    @:protected private static var femaleDativeOnes = haxe.ds.Vector.fromArrayCopy([
         "nič", "eni", "dvema", "trem", "štirim", "petim", "šestim", "sedmim", "osmim", "devetim"
-    ];
-    private static var maleDativeOnes = [
+    ]);
+    @:protected private static var maleDativeOnes = haxe.ds.Vector.fromArrayCopy([
         "nič", "enemu", "dvema", "trem", "štirim", "petim", "šestim", "sedmim", "osmim", "devetim"
-    ];
-    private static var neutralDativeOnes = [
+    ]);
+    @:protected private static var neutralDativeOnes = haxe.ds.Vector.fromArrayCopy([
         "nič", "enemu", "dvema", "trem", "štirim", "petim", "šestim", "sedmim", "osmim", "devetim"
-    ];
-    private static var dativeOnes = [ femaleDativeOnes, maleDativeOnes, neutralDativeOnes ];
+    ]);
+    @:protected private static var dativeOnes = haxe.ds.Vector.fromArrayCopy([ femaleDativeOnes, maleDativeOnes, neutralDativeOnes ]);
     
-    private static var femaleAccusativeOnes = [
+    @:protected private static var femaleAccusativeOnes = haxe.ds.Vector.fromArrayCopy([
         "nič", "eno", "dve", "tri", "štiri", "pet", "šest", "sedem", "osem", "devet"
-    ];
-    private static var maleAccusativeOnes = [
+    ]);
+    @:protected private static var maleAccusativeOnes = haxe.ds.Vector.fromArrayCopy([
         "nič", "enega", "dva", "tri", "štiri", "pet", "šest", "sedem", "osem", "devet"
-    ];
-    private static var neutralAccusativeOnes = [
+    ]);
+    @:protected private static var neutralAccusativeOnes = haxe.ds.Vector.fromArrayCopy([
         "nič", "eno", "dve", "tri", "štiri", "pet", "šest", "sedem", "osem", "devet"
-    ];
-    private static var accusativeOnes = [ femaleAccusativeOnes, maleAccusativeOnes, neutralAccusativeOnes ];
+    ]);
+    @:protected private static var accusativeOnes = haxe.ds.Vector.fromArrayCopy([ femaleAccusativeOnes, maleAccusativeOnes, neutralAccusativeOnes ]);
 
 
-    private static var femaleLocativeOnes = [
+    @:protected private static var femaleLocativeOnes = haxe.ds.Vector.fromArrayCopy([
         "nič", "eni", "dveh", "treh", "štirih", "petih", "šestih", "sedmih", "osmih", "devetih"
-    ];
-    private static var maleLocativeOnes = [
+    ]);
+    @:protected private static var maleLocativeOnes = haxe.ds.Vector.fromArrayCopy([
         "nič", "enem", "dveh", "treh", "štirih", "petih", "šestih", "sedmih", "osmih", "devetih"
-    ];
-    private static var neutralLocativeOnes = [
+    ]);
+    @:protected private static var neutralLocativeOnes = haxe.ds.Vector.fromArrayCopy([
         "nič", "enem", "dveh", "treh", "štirih", "petih", "šestih", "sedmih", "osmih", "devetih"
-    ];
-    private static var locativeOnes = [ femaleLocativeOnes, maleLocativeOnes, neutralLocativeOnes ];
+    ]);
+    @:protected private static var locativeOnes = haxe.ds.Vector.fromArrayCopy([ femaleLocativeOnes, maleLocativeOnes, neutralLocativeOnes ]);
     
     
-    private static var femaleInstrumentalOnes = [
+    @:protected private static var femaleInstrumentalOnes = haxe.ds.Vector.fromArrayCopy([
         "nič", "eno", "dvema", "tremi", "štirimi", "petimi", "šestimi", "sedmimi", "osmimi", "devetimi"
-    ];
-    private static var maleInstrumentalOnes = [
+    ]);
+    @:protected private static var maleInstrumentalOnes = haxe.ds.Vector.fromArrayCopy([
         "nič", "enim", "dvema", "tremi", "štirimi", "petimi", "šestimi", "sedmimi", "osmimi", "devetimi"
-    ];
-    private static var neutralInstrumentalOnes = [
+    ]);
+    @:protected private static var neutralInstrumentalOnes = haxe.ds.Vector.fromArrayCopy([
         "nič", "enim", "dvema", "tremi", "štirimi", "petimi", "šestimi", "sedmimi", "osmimi", "devetimi"
-    ];
-    private static var instrumentalOnes = [ femaleInstrumentalOnes, maleInstrumentalOnes, neutralInstrumentalOnes ];
+    ]);
+    @:protected private static var instrumentalOnes = haxe.ds.Vector.fromArrayCopy([ femaleInstrumentalOnes, maleInstrumentalOnes, neutralInstrumentalOnes ]);
     
     
-    private static var onesByCaseAndGender = [
+    @:protected private static var onesByCaseAndGender = haxe.ds.Vector.fromArrayCopy([
         nominativeOnes, genitiveOnes, dativeOnes, accusativeOnes, locativeOnes, instrumentalOnes
-    ];
+    ]);
     
-    private static var nominativeTens = [ null, "deset", "dvajset", "trideset", "štirideset", "petdeset", "šestdeset", "sedemdeset", "osemdeset", "devetdeset" ];
-    private static var tensSuffixPerCase = ["", "ih", "im", "", "ih", "imi" ];
-    private static var thousandsSuffixPerCase = ["", "ih", "im", "", "ih", "" ];
-    private static var hundredsSuffixPerCase = ["", "tih", "tim", "", "tih", "timi" ];
+    @:protected private static var nominativeTens = haxe.ds.Vector.fromArrayCopy([ 
+        null, "deset", "dvajset", "trideset", "štirideset", "petdeset", "šestdeset", "sedemdeset", "osemdeset", "devetdeset" 
+    ]);
+    @:protected private static var tensSuffixPerCase = haxe.ds.Vector.fromArrayCopy([
+        "", "ih", "im", "", "ih", "imi" 
+    ]);
+    @:protected private static var thousandsSuffixPerCase = haxe.ds.Vector.fromArrayCopy([
+        "", "ih", "im", "", "ih", ""
+    ]);
+    @:protected private static var hundredsSuffixPerCase = haxe.ds.Vector.fromArrayCopy([
+        "", "tih", "tim", "", "tih", "timi" 
+    ]);
     
     /**
      * Formats the given number into Slovene words using the default form according to
@@ -124,11 +133,11 @@ class SloveneNumber {
         }
     }
     
-    private static function ones(number: Int, genderIdx: Int, caseIdx: Int, pluralAccusativeOne: Bool): String {
+    @:protected private static function ones(number: Int, genderIdx: Int, caseIdx: Int, pluralAccusativeOne: Bool): String {
         if (pluralAccusativeOne && number == 1 && (caseIdx == 0 || caseIdx == 3)) return "en";
         return onesByCaseAndGender[caseIdx][genderIdx][number % 10];
     }
-    private static function tens(number: Int, genderIdx: Int, caseIdx: Int, pluralAccusativeOne: Bool): String {
+    @:protected private static function tens(number: Int, genderIdx: Int, caseIdx: Int, pluralAccusativeOne: Bool): String {
         if (number < 10) return ones(number, genderIdx, caseIdx, pluralAccusativeOne);
         else if (number == 11) return "enajst" + tensSuffixPerCase[caseIdx];
         else {
@@ -146,7 +155,7 @@ class SloveneNumber {
             }
         }
     }
-    private static function hundreds(number: Int, genderIdx: Int, caseIdx: Int, pluralAccusativeOne: Bool): String {
+    @:protected private static function hundreds(number: Int, genderIdx: Int, caseIdx: Int, pluralAccusativeOne: Bool): String {
         if (number < 100) return tens(number, genderIdx, caseIdx, pluralAccusativeOne);
         else {
             var hundred = number % 100;
@@ -156,7 +165,7 @@ class SloveneNumber {
             else return hundredString + " " + tens(hundred, genderIdx, caseIdx, pluralAccusativeOne);
         }
     }
-    private static function thousands(number: Int, genderIdx: Int, caseIdx: Int) {
+    @:protected private static function thousands(number: Int, genderIdx: Int, caseIdx: Int) {
         if (number < 1000) return hundreds(number, genderIdx, caseIdx, false);
         else {
             var thousand = number % 1000;
@@ -169,7 +178,7 @@ class SloveneNumber {
             else return thousandString + " " + hundreds(thousand, genderIdx, caseIdx, false);
         }
     }
-    private static function millions(number: Int, genderIdx: Int, caseIdx: Int) {
+    @:protected private static function millions(number: Int, genderIdx: Int, caseIdx: Int) {
         if (number < 1000000) return thousands(number, genderIdx, caseIdx);
         else {
             var million = number % 1000000;
@@ -185,7 +194,7 @@ class SloveneNumber {
         }
     }
     
-    private static function billions(number: Int, genderIdx: Int, caseIdx: Int) {
+    @:protected private static function billions(number: Int, genderIdx: Int, caseIdx: Int) {
         if (number < 1000000000) return millions(number, genderIdx, caseIdx);
         else {
             var billion = number % 1000000000;
@@ -201,23 +210,34 @@ class SloveneNumber {
         }
     }
     
-    private static function bigNumberSuffix(number: Int, caseIdx: Int) {
+    @:protected private static var bigNumberSuffixes1 = haxe.ds.Vector.fromArrayCopy(["", "a", "u", "", "u", "om"]);
+    @:protected private static var bigNumberSuffixes2 = haxe.ds.Vector.fromArrayCopy(["a", "ov", "oma", "a", "ih", "oma"]);
+    @:protected private static var bigNumberSuffixes34 = haxe.ds.Vector.fromArrayCopy(["i", "ov", "om", "e", "ih", "i"]);
+    @:protected private static var bigNumberSuffixesDefault = haxe.ds.Vector.fromArrayCopy(["ov", "ov", "om", "ov", "ih", "i"]);
+    
+    @:protected private static function bigNumberSuffix(number: Int, caseIdx: Int) {
         var modulo = number % 100;
         return switch (modulo) {
-            case 1      : ["", "a", "u", "", "u", "om"][caseIdx];
-            case 2      : ["a", "ov", "oma", "a", "ih", "oma"][caseIdx];
-            case 3 | 4  : ["i", "ov", "om", "e", "ih", "i"][caseIdx];
-            default     : ["ov", "ov", "om", "ov", "ih", "i"][caseIdx];
+            case 1      : bigNumberSuffixes1[caseIdx];
+            case 2      : bigNumberSuffixes2[caseIdx];
+            case 3 | 4  : bigNumberSuffixes34[caseIdx];
+            default     : bigNumberSuffixesDefault[caseIdx];
         }
     }
     
-    private static function billionNumberSuffix(number: Int, caseIdx: Int) {
+    
+    @:protected private static var billionNumberSuffixes1 = haxe.ds.Vector.fromArrayCopy(["a", "e", "i", "o", "i", "o"]);
+    @:protected private static var billionNumberSuffixes2 = haxe.ds.Vector.fromArrayCopy(["i", "", "ama", "i", "ah", "ama"]);
+    @:protected private static var billionNumberSuffixes34 = haxe.ds.Vector.fromArrayCopy(["e", "", "am", "e", "ah", "ami"]);
+    @:protected private static var billionNumberSuffixesDefault = haxe.ds.Vector.fromArrayCopy(["", "", "am", "", "ami", "ami"]);
+    
+    @:protected private static function billionNumberSuffix(number: Int, caseIdx: Int) {
         var modulo = number % 100;
         return switch (modulo) {
-            case 1      : ["a", "e", "i", "o", "i", "o"][caseIdx];
-            case 2      : ["i", "", "ama", "i", "ah", "ama"][caseIdx];
-            case 3 | 4  : ["e", "", "am", "e", "ah", "ami"][caseIdx];
-            default     : ["", "", "am", "", "ami", "ami"][caseIdx];
+            case 1      : billionNumberSuffixes1[caseIdx];
+            case 2      : billionNumberSuffixes2[caseIdx];
+            case 3 | 4  : billionNumberSuffixes34[caseIdx];
+            default     : billionNumberSuffixesDefault[caseIdx];
         }
     }
 }
