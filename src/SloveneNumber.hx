@@ -1,7 +1,9 @@
 /**
  * A formatter of numbers into Slovene words.
  */
+@:nativeGen
 @:keep
+@:native('co.petrin.language.SloveneNumber')
 class SloveneNumber {
 
     // Hidden constructor since we don't need an instance
