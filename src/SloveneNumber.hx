@@ -4,6 +4,9 @@
 @:keep
 class SloveneNumber {
 
+    // Hidden constructor since we don't need an instance
+    @:protected private function new() {}
+
     @:protected private static var femaleNominativeOnes = haxe.ds.Vector.fromArrayCopy([
         "nič", "ena", "dve", "tri", "štiri", "pet", "šest", "sedem", "osem", "devet"
     ]);
